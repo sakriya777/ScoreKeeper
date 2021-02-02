@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="horizontal"
-    android:gravity="center">
+    android:gravity="center_horizontal"
+    android:layout_marginTop="55dp">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayoutCompat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -24,33 +28,40 @@
             android:id="@+id/teamAScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="240"
+            android:text="0"
             android:textSize="50sp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/teamA_btn_add3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="AAdd3"
             android:text="+3 POINTS" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/teamA_btn_add2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="AAdd2"
             android:text="+2 POINTS" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/teamA_btn_add1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="AAdd1"
             android:text="FREE THROW" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,25 +73,39 @@
             android:id="@+id/teamBScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="240"
+            android:text="0"
             android:textSize="50sp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/teamB_btn_add3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="BAdd3"
             android:text="+3 POINTS" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/teamB_btn_add2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="BAdd2"
             android:text="+2 POINTS" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/teamB_btn_add1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="BAdd1"
             android:text="FREE THROW" />
     </androidx.appcompat.widget.LinearLayoutCompat>
-</LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/teamB_btn_add1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="ResetScore"
+        android:text="Reset Score"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
